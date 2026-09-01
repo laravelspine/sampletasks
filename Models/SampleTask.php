@@ -23,6 +23,26 @@ class SampleTask extends Model
     use HasLifecycleHooks;
     use HasUlids;
 
+    /**
+     * Definisi status — source of truth (dipakai UI "Mark as", hook parent,
+     * validasi). Padanan enum legacy: pending/in_progress/done.
+     */
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_IN_PROGRESS = 'in_progress';
+    public const STATUS_DONE = 'done';
+
+    public const STATUSES = [
+        self::STATUS_PENDING,
+        self::STATUS_IN_PROGRESS,
+        self::STATUS_DONE,
+    ];
+
+    public const STATUS_LABELS = [
+        self::STATUS_PENDING      => 'Pending',
+        self::STATUS_IN_PROGRESS  => 'In Progress',
+        self::STATUS_DONE         => 'Done',
+    ];
+
     protected $fillable = ['sample_item_id', 'title', 'status', 'ulid'];
 
     protected $casts = [
