@@ -77,8 +77,9 @@ class SampleTaskController extends Controller
         }
 
         $validated = $request->validate([
-            'title'  => ['sometimes', 'string', 'max:190'],
-            'status' => ['sometimes', 'string', 'in:pending,in_progress,done'],
+            'sample_item_id' => ['sometimes', 'integer', 'exists:sample_items,id'],
+            'title'          => ['sometimes', 'string', 'max:190'],
+            'status'         => ['sometimes', 'string', 'in:pending,in_progress,done'],
         ]);
 
         $task->update($validated);
