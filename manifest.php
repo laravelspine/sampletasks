@@ -47,4 +47,19 @@ return [
             'position' => 20,
         ],
     ],
+
+    // HOOK tab lintas modul (padanan add_customer_profile_tab legacy):
+    // tambahkan tab "Tasks" ke detail module Sample (target 'sample'),
+    // diisi daftar child task milik SampleItem tsb (?sample_item_id={id}).
+    'extend_detail_tabs' => [
+        'sample' => [
+            [
+                'slug'     => 'tasks',
+                'label'    => 'Tasks',
+                'icon'     => '✅',
+                'api'      => '/api/v1/sample-tasks?sample_item_id={id}',
+                'position' => 30,
+            ],
+        ],
+    ],
 ];
