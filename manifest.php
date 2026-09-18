@@ -12,6 +12,14 @@ declare(strict_types=1);
  * @return array{menu: list<array{slug: string, label: string, icon: string, href: string, position: int}>, widgets: list<array{id: string, area: string, title: string, api: string}>, detail_tabs: list<array{slug: string, label: string, icon: string, api: string, position: int}>}
  */
 return [
+    // Bundle frontend modul (REACT/UI) — di-import core via import(url)
+    // runtime. Relatif terhadap origin backend; core me-resolve dengan
+    // base URL API-nya. File diletakkan di Modules/SampleTasks/frontend/dist/
+    // (hasil build paket spine-modules/sampletasks).
+    'frontend' => [
+        'entry_url' => '/api/v1/modules/assets/sampletasks/sampletasks.module.js',
+    ],
+
     'menu' => [
         [
             'slug'     => 'sample-tasks',
