@@ -70,4 +70,14 @@ return [
             ],
         ],
     ],
+
+    'profile_tabs' => [
+        [
+            'slug'     => 'sample-tasks',
+            'label'    => 'Sample Tasks',
+            'icon'     => '✅',
+            'href'     => '/sample-tasks',
+            'position' => 30,
+        ],
+    ],
 ];
