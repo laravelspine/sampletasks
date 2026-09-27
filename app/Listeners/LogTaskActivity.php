@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\SampleTasks\Listeners;
+namespace Modules\SampleTasks\app\Listeners;
 
 use Modules\SampleTasks\Models\SampleTask;
 use Spine\Events\EntityCreated;

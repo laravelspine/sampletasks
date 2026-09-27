@@ -9,13 +9,12 @@ declare(strict_types=1);
  * 'widgets' → Dashboard per area
  * 'detail_tabs' → panel detail per record (api placeholder {id})
  *
- * @return array{menu: list<array{slug: string, label: string, icon: string, href: string, position: int}>, widgets: list<array{id: string, area: string, title: string, api: string}>, detail_tabs: list<array{slug: string, label: string, icon: string, api: string, position: int}>}
+ * Tab profile terekspose via UI Extension registry (register di bundle frontend).
+ *
+ * @return array{frontend: array{entry_url: string}, menu: list<array>, widgets: list<array>, detail_tabs: list<array>, extend_detail_tabs: array}
  */
 return [
-    // Bundle frontend modul (REACT/UI) — di-import core via import(url)
-    // runtime. Relatif terhadap origin backend; core me-resolve dengan
-    // base URL API-nya. File diletakkan di Modules/SampleTasks/frontend/dist/
-    // (hasil build paket spine-modules/sampletasks).
+    // Bundle frontend modul (REACT/UI) — di-import core via import(url) runtime.
     'frontend' => [
         'entry_url' => '/api/v1/modules/assets/sampletasks/sampletasks.module.js',
     ],
@@ -23,7 +22,7 @@ return [
     'menu' => [
         [
             'slug'     => 'sample-tasks',
-            'label'    => 'Sample Tasks',
+            'label'    => ['namespace' => 'module.sampletasks', 'key' => 'menu'],
             'icon'     => '✅',
             'href'     => '/sample-tasks',
             'position' => 91,
@@ -34,7 +33,7 @@ return [
         [
             'id'    => 'sample-tasks',
             'area'  => 'right-4',
-            'title' => 'Sample Tasks',
+            'title' => ['namespace' => 'module.sampletasks', 'key' => 'widget'],
             'api'   => '/api/v1/sample-tasks',
         ],
     ],
@@ -42,14 +41,14 @@ return [
     'detail_tabs' => [
         [
             'slug'     => 'overview',
-            'label'    => 'Overview',
+            'label'    => ['namespace' => 'module.sampletasks', 'key' => 'tab_overview'],
             'icon'     => '👁️',
             'api'      => '/api/v1/sample-tasks/{id}',
             'position' => 10,
         ],
         [
             'slug'     => 'activity',
-            'label'    => 'Activity',
+            'label'    => ['namespace' => 'module.sampletasks', 'key' => 'tab_activity'],
             'icon'     => '🕐',
             'api'      => '/api/v1/sample-tasks/{id}/activity-logs',
             'position' => 20,
@@ -63,21 +62,11 @@ return [
         'sample' => [
             [
                 'slug'     => 'tasks',
-                'label'    => 'Tasks',
+                'label'    => ['namespace' => 'module.sampletasks', 'key' => 'tab_tasks'],
                 'icon'     => '✅',
                 'api'      => '/api/v1/sample-tasks?sample_item_id={id}',
                 'position' => 30,
             ],
-        ],
-    ],
-
-    'profile_tabs' => [
-        [
-            'slug'     => 'sample-tasks',
-            'label'    => 'Sample Tasks',
-            'icon'     => '✅',
-            'href'     => '/sample-tasks',
-            'position' => 30,
         ],
     ],
 ];

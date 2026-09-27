@@ -275,20 +275,47 @@ function SampleTasksSummary() {
 
 // src/module.ts
 var module = {
-  id: "sampletasks",
+  id: "sample-tasks",
   name: "SampleTasks UI",
   version: "0.1.0",
+  translations: {
+    en: {
+      "tabs.sampleTasks": "Sample Tasks",
+      "sections.summary": "Sample Tasks Summary",
+      "widgets.quickStats": "Sample Tasks \u2014 quick stats"
+    },
+    id: {
+      "tabs.sampleTasks": "Tugas Contoh",
+      "sections.summary": "Ringkasan Tugas Contoh",
+      "widgets.quickStats": "Tugas Contoh \u2014 statistik cepat"
+    },
+    ko: {
+      "tabs.sampleTasks": "\uC0D8\uD50C \uD0DC\uC2A4\uD06C",
+      "sections.summary": "\uC0D8\uD50C \uD0DC\uC2A4\uD06C \uC694\uC57D",
+      "widgets.quickStats": "\uC0D8\uD50C \uD0DC\uC2A4\uD06C \u2014 \uBE60\uB978 \uD1B5\uACC4"
+    },
+    zh: {
+      "tabs.sampleTasks": "\u793A\u4F8B\u4EFB\u52A1",
+      "sections.summary": "\u793A\u4F8B\u4EFB\u52A1\u6458\u8981",
+      "widgets.quickStats": "\u793A\u4F8B\u4EFB\u52A1 \u2014 \u5FEB\u901F\u7EDF\u8BA1"
+    },
+    ja: {
+      "tabs.sampleTasks": "\u30B5\u30F3\u30D7\u30EB\u30BF\u30B9\u30AF",
+      "sections.summary": "\u30B5\u30F3\u30D7\u30EB\u30BF\u30B9\u30AF\u6982\u8981",
+      "widgets.quickStats": "\u30B5\u30F3\u30D7\u30EB\u30BF\u30B9\u30AF \u2014 \u30AF\u30A4\u30C3\u30AF\u7D71\u8A08"
+    }
+  },
   register(ctx) {
     const { module: module2, i18n, ui } = ctx;
-    i18n.addTranslations(module2.id, {
+    i18n.addTranslations("module." + module2.id, {
       "tabs.sampleTasks": "Sample Tasks",
-      "sections.summary": "Ringkasan Sample Tasks",
-      "widgets.quickStats": "Sample Task \u2014 ringkasan"
+      "sections.summary": "Sample Tasks Summary",
+      "widgets.quickStats": "Sample Tasks \u2014 quick stats"
     });
     ui.tabs.register({
       area: "profile.tabs",
-      id: "sampletasks",
-      label: { namespace: module2.id, key: "tabs.sampleTasks" },
+      id: "sample-tasks",
+      label: { namespace: "module." + module2.id, key: "tabs.sampleTasks" },
       icon: "\u2705",
       position: 30,
       module: module2.id,
@@ -297,7 +324,7 @@ var module = {
     ui.sections.register({
       area: "profile.sections",
       id: "sampletasks-summary",
-      label: { namespace: module2.id, key: "sections.summary" },
+      label: { namespace: "module." + module2.id, key: "sections.summary" },
       position: 40,
       module: module2.id,
       component: SampleTasksSummary
@@ -305,7 +332,7 @@ var module = {
     ui.sections.register({
       area: "dashboard.widgets",
       id: "sampletasks-stats",
-      label: { namespace: module2.id, key: "widgets.quickStats" },
+      label: { namespace: "module." + module2.id, key: "widgets.quickStats" },
       position: 20,
       module: module2.id,
       component: SampleTasksWidget
