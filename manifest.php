@@ -66,7 +66,7 @@ return [
                     'key'     => 'sampletasks_hide_columns',
                     'label'   => 'Hide Columns',
                     'type'    => 'text',
-                    'default' => 'sample_item_id',
+                    'default' => '',
                 ],
             ],
         ],
