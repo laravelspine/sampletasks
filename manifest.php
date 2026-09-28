@@ -11,7 +11,7 @@ declare(strict_types=1);
  *
  * Tab profile terekspose via UI Extension registry (register di bundle frontend).
  *
- * @return array{frontend: array{entry_url: string}, menu: list<array>, widgets: list<array>, detail_tabs: list<array>, extend_detail_tabs: array}
+ * @return array{frontend: array{entry_url: string}, menu: list<array>, widgets: list<array>, detail_tabs: list<array>, settings: list<array>, extend_detail_tabs: array}
  */
 return [
     // Bundle frontend modul (REACT/UI) — di-import core via import(url) runtime.
@@ -52,6 +52,23 @@ return [
             'icon'     => '🕐',
             'api'      => '/sample-tasks/{id}/activity-logs',
             'position' => 20,
+        ],
+    ],
+
+    'settings' => [
+        [
+            'slug'     => 'sampletasks',
+            'label'    => ['namespace' => 'module.sampletasks', 'key' => 'title'],
+            'icon'     => '✅',
+            'position' => 52,
+            'fields'   => [
+                [
+                    'key'     => 'sampletasks_hide_columns',
+                    'label'   => 'Hide Columns',
+                    'type'    => 'text',
+                    'default' => 'sample_item_id',
+                ],
+            ],
         ],
     ],
 
