@@ -63,10 +63,11 @@ return [
             'position' => 52,
             'fields'   => [
                 [
-                    'key'     => 'sampletasks_hide_columns',
-                    'label'   => 'Hide Columns',
-                    'type'    => 'text',
-                    'default' => '',
+                    'key'       => 'sampletasks_hide_columns',
+                    'label'     => 'Hide Columns',
+                    'type'      => 'text',
+                    'default'   => '',
+                    'available' => 'id,title,status,sample_item_id',
                 ],
             ],
         ],
